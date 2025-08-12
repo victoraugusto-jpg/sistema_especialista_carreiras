@@ -51,7 +51,7 @@ perguntas = {
     "gosta_de_resolver_problemas_complexos": "Você gosta de resolver problemas complexos e encontrar soluções lógicas?",
     "gosta_de_biologia_ou_quimica": "Você tem interesse por biologia ou química?",
     "gosta_de_liderar": "Você gosta de liderar equipes e tomar decisões?",
-    "gosta_de_trabalhar_em_equipe": "Você prefere trabalhar em equipe a trabalhar sozinho?",
-    "gosta_de_trabalhar_sozinho": "Você prefere trabalhar sozinho a trabalhar em equipe?",
+    "gosta_de_trabalhar_em_equipe": "Você prefere trabalhar em equipe?",
+    "gosta_de_trabalhar_sozinho": "Você prefere trabalhar sozinho?",
     "gosta_de_aprender_constantemente": "Você gosta de estar sempre aprendendo e se atualizando?"
 }
