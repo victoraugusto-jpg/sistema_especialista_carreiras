@@ -5,9 +5,16 @@ def coletar_fatos_do_usuario():
     """Coleta as respostas do usuário para as perguntas iniciais."""
     fatos = {}
     print("Olá! Vamos descobrir qual área de carreira mais se encaixa com você.")
+    
     for chave, pergunta in perguntas.items():
-        resposta = input(f"{pergunta} (sim/nao): ").lower()
-        fatos[chave] = resposta == 'sim'
+        resposta_valida = False
+        while not resposta_valida:
+            resposta = input(f"{pergunta} (sim/nao): ").lower()
+            if resposta in ["sim", "nao"]:
+                fatos[chave] = resposta == 'sim'
+                resposta_valida = True
+            else:
+                print("Resposta inválida. Por favor, digite 'sim' ou 'nao'.")
     return fatos
 
 def motor_de_inferencia(fatos):
