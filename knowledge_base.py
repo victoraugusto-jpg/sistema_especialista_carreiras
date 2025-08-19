@@ -1,48 +1,52 @@
-# Definindo as regras da base de conhecimento com fatores adicionais
+# Arquivo: knowledge_base.py
+# Base de Conhecimento para o Sistema Especialista de Carreira
+
+# As regras são dicionários que contêm os fatos (SE), a conclusão (ENTÃO) e um peso de confiança.
+# O peso reflete a força da relação entre os fatos e a conclusão.
 regras = [
-    # 1. Tecnologia
-    {"se": ["gosta_de_programar", "gosta_de_resolver_problemas_complexos", "gosta_de_criacao_de_sistemas"], "entao": "Desenvolvimento de Software"},
-    {"se": ["gosta_de_liderar", "gosta_de_programar", "gosta_de_trabalhar_em_equipe", "gosta_de_estrategia"], "entao": "Gerência de TI"},
-    {"se": ["e_criativo", "gosta_de_design", "gosta_de_interacao_usuario"], "entao": "UX/UI Design"},
-    {"se": ["gosta_de_trabalhar_com_numeros", "gosta_de_seguranca", "e_analitico"], "entao": "Cibersegurança"},
-    {"se": ["gosta_de_aprender_constantemente", "gosta_de_trabalhar_em_equipe", "gosta_de_analise_dados"], "entao": "Analista de Dados"},
+    # 1. Tecnologia (Peso de 0.2 a 0.3)
+    {"se": ["gosta_de_programar", "gosta_de_resolver_problemas_complexos", "gosta_de_criacao_de_sistemas"], "entao": "Desenvolvimento de Software", "peso": 0.3},
+    {"se": ["gosta_de_liderar", "gosta_de_programar", "gosta_de_trabalhar_em_equipe", "gosta_de_estrategia"], "entao": "Gerência de TI", "peso": 0.25},
+    {"se": ["e_criativo", "gosta_de_design", "gosta_de_interacao_usuario"], "entao": "UX/UI Design", "peso": 0.2},
+    {"se": ["gosta_de_trabalhar_com_numeros", "gosta_de_seguranca", "e_analitico"], "entao": "Cibersegurança", "peso": 0.25},
+    {"se": ["gosta_de_aprender_constantemente", "gosta_de_trabalhar_em_equipe", "gosta_de_analise_dados"], "entao": "Analista de Dados", "peso": 0.2},
 
-    # 2. Saúde
-    {"se": ["gosta_de_ajudar_pessoas", "gosta_de_biologia_ou_quimica", "gosta_de_diagnostico_tratamento"], "entao": "Medicina"},
-    {"se": ["gosta_de_cuidar_de_pessoas", "e_paciente", "gosta_de_rotinas_cuidados"], "entao": "Enfermagem"},
-    {"se": ["gosta_de_trabalhar_com_numeros", "gosta_de_biologia_ou_quimica", "gosta_de_laboratorio"], "entao": "Pesquisa Médica"},
+    # 2. Saúde (Peso de 0.2 a 0.3)
+    {"se": ["gosta_de_ajudar_pessoas", "gosta_de_biologia_ou_quimica", "gosta_de_diagnostico_tratamento"], "entao": "Medicina", "peso": 0.3},
+    {"se": ["gosta_de_cuidar_de_pessoas", "e_paciente", "gosta_de_rotinas_cuidados"], "entao": "Enfermagem", "peso": 0.2},
+    {"se": ["gosta_de_trabalhar_com_numeros", "gosta_de_biologia_ou_quimica", "gosta_de_laboratorio"], "entao": "Pesquisa Médica", "peso": 0.25},
 
-    # 3. Artes e Comunicação
-    {"se": ["e_criativo", "gosta_de_escrever", "gosta_de_pesquisa_noticias"], "entao": "Jornalismo"},
-    {"se": ["e_criativo", "gosta_de_design", "gosta_de_comunicacao_visual"], "entao": "Design Gráfico"},
-    {"se": ["e_criativo", "gosta_de_interagir_com_pessoas", "gosta_de_persuasao"], "entao": "Publicidade e Marketing"},
-    {"se": ["gosta_de_trabalhar_sozinho", "e_criativo", "gosta_de_expressao_artistica"], "entao": "Artista Plástico"},
+    # 3. Artes e Comunicação (Peso de 0.2 a 0.25)
+    {"se": ["e_criativo", "gosta_de_escrever", "gosta_de_pesquisa_noticias"], "entao": "Jornalismo", "peso": 0.25},
+    {"se": ["e_criativo", "gosta_de_design", "gosta_de_comunicacao_visual"], "entao": "Design Gráfico", "peso": 0.2},
+    {"se": ["e_criativo", "gosta_de_interagir_com_pessoas", "gosta_de_persuasao"], "entao": "Publicidade e Marketing", "peso": 0.25},
+    {"se": ["gosta_de_trabalhar_sozinho", "e_criativo", "gosta_de_expressao_artistica"], "entao": "Artista Plástico", "peso": 0.2},
 
-    # 4. Finanças e Negócios
-    {"se": ["gosta_de_liderar", "gosta_de_trabalhar_com_numeros", "gosta_de_planejamento_financeiro"], "entao": "Administração de Empresas"},
-    {"se": ["gosta_de_trabalhar_com_numeros", "e_analitico", "gosta_de_organizacao_financeira"], "entao": "Contabilidade"},
-    {"se": ["gosta_de_liderar", "gosta_de_interagir_com_pessoas", "gosta_de_gestao_pessoal"], "entao": "Gestão de Recursos Humanos"},
+    # 4. Finanças e Negócios (Peso de 0.2 a 0.3)
+    {"se": ["gosta_de_liderar", "gosta_de_trabalhar_com_numeros", "gosta_de_planejamento_financeiro"], "entao": "Administração de Empresas", "peso": 0.3},
+    {"se": ["gosta_de_trabalhar_com_numeros", "e_analitico", "gosta_de_organizacao_financeira"], "entao": "Contabilidade", "peso": 0.25},
+    {"se": ["gosta_de_liderar", "gosta_de_interagir_com_pessoas", "gosta_de_gestao_pessoal"], "entao": "Gestão de Recursos Humanos", "peso": 0.2},
 
-    # 5. Educação e Pesquisa
-    {"se": ["gosta_de_aprender_constantemente", "gosta_de_ajudar_pessoas", "gosta_de_ensinar"], "entao": "Professor"},
-    {"se": ["gosta_de_aprender_constantemente", "e_analitico", "gosta_de_resolver_problemas_complexos", "gosta_de_laboratorio"], "entao": "Pesquisador"},
+    # 5. Educação e Pesquisa (Peso de 0.2 a 0.25)
+    {"se": ["gosta_de_aprender_constantemente", "gosta_de_ajudar_pessoas", "gosta_de_ensinar"], "entao": "Professor", "peso": 0.25},
+    {"se": ["gosta_de_aprender_constantemente", "e_analitico", "gosta_de_resolver_problemas_complexos", "gosta_de_laboratorio"], "entao": "Pesquisador", "peso": 0.2},
 
-    # 6. Setor Público e Jurídico
-    {"se": ["gosta_de_escrever", "e_analitico", "gosta_de_leis_regulamentos"], "entao": "Advocacia"},
-    {"se": ["gosta_de_ajudar_pessoas", "gosta_de_liderar", "gosta_de_trabalhar_em_equipe", "gosta_de_normas_publicas"], "entao": "Servidor Público"},
+    # 6. Setor Público e Jurídico (Peso de 0.25 a 0.3)
+    {"se": ["gosta_de_escrever", "e_analitico", "gosta_de_leis_regulamentos"], "entao": "Advocacia", "peso": 0.3},
+    {"se": ["gosta_de_ajudar_pessoas", "gosta_de_liderar", "gosta_de_trabalhar_em_equipe", "gosta_de_normas_publicas"], "entao": "Servidor Público", "peso": 0.25},
 
-    # 7. Engenharia
-    {"se": ["gosta_de_resolver_problemas_complexos", "gosta_de_trabalhar_com_numeros", "gosta_de_projetos_fisicos"], "entao": "Engenharia Civil"},
-    {"se": ["gosta_de_liderar", "gosta_de_trabalhar_em_equipe", "gosta_de_resolver_problemas_complexos", "gosta_de_cronogramas"], "entao": "Gerência de Projetos"},
+    # 7. Engenharia (Peso de 0.2 a 0.25)
+    {"se": ["gosta_de_resolver_problemas_complexos", "gosta_de_trabalhar_com_numeros", "gosta_de_projetos_fisicos"], "entao": "Engenharia Civil", "peso": 0.25},
+    {"se": ["gosta_de_liderar", "gosta_de_trabalhar_em_equipe", "gosta_de_resolver_problemas_complexos", "gosta_de_cronogramas"], "entao": "Gerência de Projetos", "peso": 0.2},
 
-    # 8. Outras Áreas
-    {"se": ["gosta_de_cuidar_de_pessoas", "e_paciente", "gosta_de_analisar_comportamento"], "entao": "Psicologia"},
-    {"se": ["gosta_de_interagir_com_pessoas", "e_analitico", "gosta_de_negociacao"], "entao": "Vendas"},
-    {"se": ["gosta_de_trabalhar_com_numeros", "e_analitico", "gosta_de_mercado_economia"], "entao": "Economista"},
-    {"se": ["gosta_de_trabalhar_sozinho", "gosta_de_escrever", "gosta_de_narrativa"], "entao": "Escritor"}
+    # 8. Outras Áreas (Peso de 0.2 a 0.3)
+    {"se": ["gosta_de_cuidar_de_pessoas", "e_paciente", "gosta_de_analisar_comportamento"], "entao": "Psicologia", "peso": 0.3},
+    {"se": ["gosta_de_interagir_com_pessoas", "e_analitico", "gosta_de_negociacao"], "entao": "Vendas", "peso": 0.2},
+    {"se": ["gosta_de_trabalhar_com_numeros", "e_analitico", "gosta_de_mercado_economia"], "entao": "Economista", "peso": 0.25},
+    {"se": ["gosta_de_trabalhar_sozinho", "gosta_de_escrever", "gosta_de_narrativa"], "entao": "Escritor", "peso": 0.25}
 ]
 
-# Definindo as 15 perguntas iniciais para coletar os novos fatores
+# Definindo as 15 perguntas iniciais para coletar os fatores
 perguntas = {
     "gosta_de_programar": "Você gosta de programar ou tem interesse em tecnologia?",
     "gosta_de_resolver_problemas_complexos": "Você gosta de resolver problemas complexos?",
